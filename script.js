@@ -3,25 +3,26 @@ async function fetchPrices() {
     const res = await fetch("/api/prices");
     const data = await res.json();
 
-    const assets = ["bitcoin", "paxg", "oil", "sp500"];
-    const dashboard = document.querySelectorAll("#dashboard .asset");
+    const keys = ["bitcoin", "paxg", "oil", "sp500"];
+    const assets = document.querySelectorAll("#dashboard .asset");
 
-    assets.forEach((key, i) => {
-      const priceEl = dashboard[i].querySelector(".price");
-      const changeEl = dashboard[i].querySelector(".change");
+    keys.forEach((key, i) => {
+      const priceEl = assets[i].querySelector(".price");
+      const changeEl = assets[i].querySelector(".change");
+      const item = data[key];
 
-      if (!data[key] || data[key].price === null) {
+      if (!item || item.price === null) {
         priceEl.textContent = "N/A";
         changeEl.textContent = "";
         return;
       }
 
-      priceEl.textContent = `$${data[key].price.toLocaleString()}`;
-      changeEl.textContent = `${data[key].change.toFixed(2)}%`;
-      changeEl.style.color = data[key].change >= 0 ? "#4caf50" : "#f44336";
+      priceEl.textContent = `$${item.price.toLocaleString()}`;
+      changeEl.textContent = `${item.change.toFixed(2)}%`;
+      changeEl.style.color = item.change >= 0 ? "#4caf50" : "#f44336";
     });
   } catch (err) {
-    console.error("Villa að sækja gögn:", err);
+    console.error("Villa við að sækja gögn:", err);
   }
 }
 
