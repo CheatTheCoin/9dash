@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CHEATSHEET Dashboard</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<button id="info-button" style="position:fixed; top:10px; right:10px; background:#FF6600; color:white; border:none; padding:8px 12px; border-radius:6px; cursor:pointer;">
+  ℹ️ Info
+</button>
+<div id="info-modal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%);
+background:#222; color:white; padding:20px; border-radius:10px; width:90%; max-width:400px; z-index:1000;">
+  <h3 style="margin-top:0;">How to use this tool</h3>
+  <p>This is how you become a smart buyer without needing to understand the inner workings of the market.</p>
+  <p>This tool helps you recognize signals, trends, and timing opportunities in a way that is easy to understand — even if you're just getting started.</p>
+  <hr style="border-color:#444;">
+  <p style="font-size:12px; color:#ccc;">
+    Disclaimer: This app does not provide financial advice. All signals and messages are algorithmic recommendations based on public data. You are responsible for your own decisions.
+  </p>
+  <button onclick="document.getElementById('info-modal').style.display='none'" style="margin-top:10px; background:#FF6600; color:white; border:none; padding:6px 12px; border-radius:6px;">Close</button>
+</div>
+<script>
+document.getElementById('info-button').onclick = function() {
+  document.getElementById('info-modal').style.display = 'block';
+};
+</script>
+
+  <h1>CHEATSHEET Dashboard</h1>
+
+  <div id="cheat-signal-box"></div>
+
+  <h2>Signal History</h2>
+  <div id="signal-history" style="max-width:300px; margin:0 auto;"></div>
+
+  <div class="price-box">
+    <h2>Bitcoin (BTC)</h2>
+    <p id="btc-price"></p>
+    <p id="btc-change"></p>
+    <p id="bitcoin-ath-context" class="ath-context"></p>
+  </div>
+
+  <div class="price-box">
+    <h2>Ethereum (ETH)</h2>
+    <p id="eth-price"></p>
+    <p id="eth-change"></p>
+    <p id="ethereum-ath-context" class="ath-context"></p>
+  </div>
+
+  <div class="price-box">
+    <h2>Solana (SOL)</h2>
+    <p id="sol-price"></p>
+    <p id="sol-change"></p>
+    <p id="solana-ath-context" class="ath-context"></p>
+  </div>
+
+  <div class="price-box">
+    <h2>PAX Gold (PAXG)</h2>
+    <p id="gold-price"></p>
+    <p id="gold-change"></p>
+    <p id="pax-gold-ath-context" class="ath-context"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
