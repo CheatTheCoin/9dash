@@ -1,1 +1,0 @@
-document.getElementById('status').innerText = 'Dashboard loaded successfully.';
