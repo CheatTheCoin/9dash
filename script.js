@@ -1,1 +1,0 @@
-// Updated script.js with signal logic and friendly messages
